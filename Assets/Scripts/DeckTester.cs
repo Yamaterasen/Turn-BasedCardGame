@@ -91,5 +91,7 @@ public class DeckTester : MonoBehaviour
         //Update discard pile with card
         _discardCardView.Display(targetCard);
         Debug.Log("Card added to discard: " + targetCard.Name);
+
+
     }
 }

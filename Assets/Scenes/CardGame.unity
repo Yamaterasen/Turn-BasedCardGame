@@ -418,6 +418,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1576305855}
+        m_MethodName: OnPressedConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &85798678
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,12 +507,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae2fb4770ca4cb840bfca580fe14c483, type: 2}
   - {fileID: 11400000, guid: 90d3eb775b448d04191082809312f7c3, type: 2}
   - {fileID: 11400000, guid: 90d3eb775b448d04191082809312f7c3, type: 2}
-  - {fileID: 11400000, guid: 47a17de3e4f6b6e4eadbcdcce818d4ee, type: 2}
-  - {fileID: 11400000, guid: 47a17de3e4f6b6e4eadbcdcce818d4ee, type: 2}
-  - {fileID: 11400000, guid: 47a17de3e4f6b6e4eadbcdcce818d4ee, type: 2}
-  - {fileID: 11400000, guid: 44f0f20209084574cb831f4796a2178d, type: 2}
-  - {fileID: 11400000, guid: 44f0f20209084574cb831f4796a2178d, type: 2}
-  - {fileID: 11400000, guid: 44f0f20209084574cb831f4796a2178d, type: 2}
+  - {fileID: 11400000, guid: ae2fb4770ca4cb840bfca580fe14c483, type: 2}
   _abilityCardView: {fileID: 66030304}
   _discardCardView: {fileID: 709673463}
   CardSlot: {fileID: 2143780159}
@@ -1583,7 +1589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

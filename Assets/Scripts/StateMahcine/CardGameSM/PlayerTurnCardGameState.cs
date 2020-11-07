@@ -28,7 +28,7 @@ public class PlayerTurnCardGameState : CardGameState
         Debug.Log("Player Turn: Exiting...");
     }
 
-    void OnPressedConfirm()
+    public void OnPressedConfirm()
     {
         StateMachine.ChangeState<EnemyTurnCardGameState>();
     }
