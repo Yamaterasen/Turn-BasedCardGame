@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Kick
   _cost: 1
-  _graphic: {fileID: 0}
+  _graphic: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   _playEffect: {fileID: 11400000, guid: b4c24258458ff4e4e836ef74f261ece3, type: 2}

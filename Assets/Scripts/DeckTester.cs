@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeckTester : MonoBehaviour
 {
@@ -8,14 +9,17 @@ public class DeckTester : MonoBehaviour
     List<AbilityCardData> _abilityDeckConfig
         = new List<AbilityCardData>();
     [SerializeField] AbilityCardView _abilityCardView = null;
+    [SerializeField] DiscardCardView _discardCardView = null;
     Deck<AbilityCard> _abilityDeck = new Deck<AbilityCard>();
     Deck<AbilityCard> _abilityDiscard = new Deck<AbilityCard>();
+    [SerializeField] GameObject CardSlot;
 
     Deck<AbilityCard> _playerHand = new Deck<AbilityCard>();
 
     private void Start()
     {
         SetupAbilityDeck();
+        Debug.Log(_playerHand.Count);
     }
 
     private void SetupAbilityDeck()
@@ -44,8 +48,13 @@ public class DeckTester : MonoBehaviour
         }
     }
 
-    private void Draw()
+    public void Draw()
     {
+        if(CardSlot.activeSelf)
+        {
+           CardSlot.SetActive(false);
+        }
+
         AbilityCard newCard = _abilityDeck.Draw(DeckPosition.Top);
         Debug.Log("Drew card: " + newCard.Name);
         _playerHand.Add(newCard, DeckPosition.Top);
@@ -61,13 +70,26 @@ public class DeckTester : MonoBehaviour
         }
     }
 
-    void PlayTopCard()
+    public void PlayTopCard()
     {
         AbilityCard targetCard = _playerHand.TopItem;
         targetCard.Play();
         //TODO consider expanding Remove to accept a deck position
         _playerHand.Remove(_playerHand.LastIndex);
         _abilityDiscard.Add(targetCard);
+        //Update card on hand
+        if(_playerHand.Count <= 0)
+        {
+            CardSlot.SetActive(true);
+        }
+        else
+        {
+            AbilityCard nextCard = _playerHand.TopItem;
+            _abilityCardView.Display(nextCard);
+        }
+
+        //Update discard pile with card
+        _discardCardView.Display(targetCard);
         Debug.Log("Card added to discard: " + targetCard.Name);
     }
 }

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Creature : MonoBehaviour, ITargetable, IDamageable
 {
-    int _currentHealth = 10;
+    public int _currentHealth = 10;
+    [SerializeField] Slider enemyHealthBar;
+    [SerializeField] GameObject victoryText;
 
     public void Kill()
     {
@@ -15,9 +19,12 @@ public class Creature : MonoBehaviour, ITargetable, IDamageable
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
+        // Update Health Bar
+        enemyHealthBar.value = _currentHealth;
         Debug.Log("Took damage. Remaining health: " + _currentHealth);
         if(_currentHealth <= 0)
         {
+            victoryText.SetActive(true);
             Kill();
         }
     }
