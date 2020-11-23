@@ -12,7 +12,7 @@ public class TargetController : MonoBehaviour
     private void Update()
     {
         //target the object when '1' is pressed
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetMouseButtonDown(0))
         {
             //target the object, if it is targetable
             ITargetable possibleTarget =

@@ -46,6 +46,10 @@ public class DeckTester : MonoBehaviour
         {
             PlayTopCard();
         }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            ShuffleTime();
+        }
     }
 
     public void Draw()
@@ -91,7 +95,12 @@ public class DeckTester : MonoBehaviour
         //Update discard pile with card
         _discardCardView.Display(targetCard);
         Debug.Log("Card added to discard: " + targetCard.Name);
+    }
 
-
+    public void ShuffleTime()
+    {
+        _playerHand.Shuffle();
+        AbilityCard nextCard = _playerHand.TopItem;
+        _abilityCardView.Display(nextCard);
     }
 }

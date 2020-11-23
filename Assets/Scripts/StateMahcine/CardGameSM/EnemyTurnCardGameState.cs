@@ -8,8 +8,11 @@ public class EnemyTurnCardGameState : CardGameState
 {
     public static event Action EnemyTurnBegan;
     public static event Action EnemyTurnEnded;
-    [SerializeField] int playerHealth = 10;
+    public int playerHealth = 10;
     [SerializeField] Slider playerHealthSlider;
+    [SerializeField] int playerDamage = 1;
+    [SerializeField] GameObject losePanel;
+    [SerializeField] GameObject winPanel;
 
     [SerializeField] float _pauseDuration = 1.5f;
 
@@ -32,8 +35,13 @@ public class EnemyTurnCardGameState : CardGameState
         yield return new WaitForSeconds(pauseDuration);
 
         Debug.Log("Enemy performs action");
-        playerHealth--;
+        playerHealth = playerHealth - playerDamage;
         playerHealthSlider.value = playerHealth;
+
+        if(playerHealth <= 0 && winPanel.activeSelf == false)
+        {
+            losePanel.SetActive(true);
+        }
         
 
         EnemyTurnEnded?.Invoke();

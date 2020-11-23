@@ -8,7 +8,7 @@ public class Creature : MonoBehaviour, ITargetable, IDamageable
 {
     public int _currentHealth = 10;
     [SerializeField] Slider enemyHealthBar;
-    [SerializeField] GameObject victoryText;
+    [SerializeField] GameObject victory_pnl;
 
     public void Kill()
     {
@@ -24,7 +24,7 @@ public class Creature : MonoBehaviour, ITargetable, IDamageable
         Debug.Log("Took damage. Remaining health: " + _currentHealth);
         if(_currentHealth <= 0)
         {
-            victoryText.SetActive(true);
+            victory_pnl.SetActive(true);
             Kill();
         }
     }
